@@ -7,6 +7,10 @@ subsampling:
             frame_rate: -1
             downsample_method: 'keyframe'
             encode_format: 'mp4'
+    FramePhashSubsampler:
+        args:
+            frame_rate: -1
+            
 
 reading:
     yt_args:
