@@ -1,0 +1,32 @@
+subsampling:
+    FFProbeSubsampler:
+        args:
+            extract_keyframes: True
+    FrameSubsampler:
+        args:
+            frame_rate: -1
+            downsample_method: 'keyframe'
+            encode_format: 'mp4'
+
+reading:
+    yt_args:
+        download_size: 360
+        download_audio_rate: 44100
+        yt_metadata_args:
+            writesubtitles: 'all'
+            subtitleslangs: ['en', 'de', 'es', 'fr', 'it', 'nl', 'pl', 'ru']
+            writeautomaticsub: True
+            get_info: True
+    timeout: 60
+    sampler: null
+
+storage:
+    number_sample_per_shard: 100
+    oom_shard_count: 5
+    captions_are_subtitles: False
+
+distribution:
+    processes_count: 1
+    thread_count: 8
+    subjob_size: 100
+    distributor: "multiprocessing"
